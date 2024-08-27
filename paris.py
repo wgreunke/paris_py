@@ -6,8 +6,8 @@ import streamlit as st
 from streamlit_sortables import sort_items
 
 original_items = [
-    {'header': 'first container',  'items': ['A', 'B', 'C']},
-    {'header': 'second container', 'items': ['D', 'E', 'F']}
+    {'header': 'first container',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
+    {'header': 'second container', 'items': ['Hotel', 'Latin Quarter', 'Airport','Charles de Gaul Station']}
 ]
 
 sorted_items = sort_items(original_items, multi_containers=True)
