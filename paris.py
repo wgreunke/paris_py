@@ -14,3 +14,5 @@ sorted_items = sort_items(original_items, multi_containers=True)
 
 st.write(f'original_items: {original_items}')
 st.write(f'sorted_items: {sorted_items}')
+
+st.write(oritional_items[0]['items'][0])
