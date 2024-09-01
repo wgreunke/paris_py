@@ -8,7 +8,7 @@ st.title("Draw a Line on a Map")
 
 # Get user input for the map center
 center_lat = st.number_input("Center Latitude", value=37.7749)
-center_lng = st.number_input("Center Longitude", value=-122.4194)
+center_lng = st.number_input("Center Longitude", value=122.4194)
 
 # Create the map
 m = folium.Map(location=[center_lat, center_lng], zoom_start=12)
