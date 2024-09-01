@@ -14,20 +14,29 @@ center_lng = st.number_input("Center Longitude", value=122.4194)
 m = folium.Map(location=[center_lat, center_lng], zoom_start=12)
 
 # Add the Draw plugin to the map
-draw = Draw(
-    position="topleft",
-    polyline=True,  # Enable drawing polylines (lines)
-    circle=False,  # Disable drawing circles
-    rectangle=False,  # Disable drawing rectangles
-    polygon=False,  # Disable drawing polygons
-    marker=False,  # Disable drawing markers
-    edit_polyline=True,  # Allow editing of polylines
-    edit_marker=False,  # Disable editing of markers
-    edit_circle=False,  # Disable editing of circles
-    edit_rectangle=False,  # Disable editing of rectangles
-    edit_polygon=False,  # Disable editing of polygons
-)
-m.add_child(draw)
+
+tokyo = (35.6895, 139.6917)
+maui = (20.7967, -156.3319)
+
+if maui[1] < 0:
+    maui = (maui[0], maui[1] + 360)
+
+# Calculate the midpoint
+midpoint = ((tokyo[0] + maui[0]) / 2, (tokyo[1] + maui[1]) / 2)
+
+# Create a map centered around the midpoint
+m = folium.Map(location=midpoint, zoom_start=2)
+
+# Draw a line connecting Tokyo and Maui
+folium.PolyLine(
+    locations=[tokyo, maui],
+    color='green',
+    weight=2
+).add_to(m)
+
+# Add markers for Tokyo and Maui
+folium.Marker(location=tokyo, popup='Tokyo').add_to(m)
+folium.Marker(location=maui, popup='Maui').add_to(m)
 
 # Display the map
 st.folium_map(m)
