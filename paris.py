@@ -1,9 +1,6 @@
 #Sortables https://github.com/ohtaman/streamlit-sortables
 import streamlit as st
 from streamlit_sortables import sort_items
-import 
-
-import streamlit as st
 import folium
 from folium.plugins import Draw
 
