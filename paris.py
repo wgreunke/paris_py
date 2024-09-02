@@ -22,7 +22,9 @@ places_df=pd.DataFrame([row_1,row_2,row_3],columns=df_columns)
 print(places_df)
 
 #Values held has tupples
-#louvre=(48.8606, 2.3376)
+eifel = (48.8584, 2.2945)
+notre_dame = (48.8530,2.3499)
+louvre=(48.8606, 2.3376)
 
 folium.PolyLine(
     locations=[eifel, notre_dame,louvre],
