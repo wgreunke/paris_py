@@ -18,12 +18,21 @@ df_columns=["place","place_lat","place_long"] #Keep it simple for now.
 row_1=["Eifel Tower",48.8584, 2.2945]
 row_2=["Notre Dame Cathedral",48.8530,2.3499]
 row_3=["Louvre Museum",48.8606, 2.3376]
-places_df=pd.DataFrame([row_1,row_2,row_3],columns=df_columns)
+row_3=["Charles DeGaule Airport",49.0079, 2.5508]
+places_df=pd.DataFrame([row_1,row_2,row_3,row_4],columns=df_columns)
 st.write(places_df)
 st.write(places_df.at[0,'place'])
 
+#Make a list of places that you want to show then make a subset from the dataframe.
+place_list=["Notre Dame Cathedral","Louvre Museum"]
+#Given the place list, return the rows of the df that match the place list.
+plan_df = places_df[places_df['place'].isin(place_list)]
+#filtered_df = df[df['Category'].isin(target_values)]
+st.write(plan_df)
+
 #Create a list of tupples from the dataframe that has lat, long
-places_tuples = [(row['place_lat'], row['place_long']) for _, row in places_df.iterrows()]
+plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
+
 st.write(places_tuples)
 
 #Values held has tupples
@@ -34,7 +43,7 @@ louvre=(48.8606, 2.3376)
 
 folium.PolyLine(
 #    locations=[eifel, notre_dame,louvre],
-    locations=[places_tuples],
+    locations=[plan_tuples],
     color='red',
     weight=2
 ).add_to(m)
