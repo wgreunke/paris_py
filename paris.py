@@ -33,7 +33,8 @@ louvre=(48.8606, 2.3376)
 
 
 folium.PolyLine(
-    locations=[eifel, notre_dame,louvre],
+#    locations=[eifel, notre_dame,louvre],
+    locations=[places_tuples],
     color='red',
     weight=2
 ).add_to(m)
