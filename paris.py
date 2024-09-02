@@ -4,43 +4,17 @@ from streamlit_sortables import sort_items
 import folium
 from folium.plugins import Draw
 
-st.title("Draw a Line on a Map")
 
-# Get user input for the map center
-center_lat = st.number_input("Center Latitude", value=37.7749)
-center_lng = st.number_input("Center Longitude", value=122.4194)
+from streamlit_folium import st_folium
 
-# Create the map
-m = folium.Map(location=[center_lat, center_lng], zoom_start=12)
-
-# Add the Draw plugin to the map
-
-tokyo = (35.6895, 139.6917)
-maui = (20.7967, -156.3319)
-
-if maui[1] < 0:
-    maui = (maui[0], maui[1] + 360)
-
-# Calculate the midpoint
-midpoint = ((tokyo[0] + maui[0]) / 2, (tokyo[1] + maui[1]) / 2)
-
-# Create a map centered around the midpoint
-m = folium.Map(location=midpoint, zoom_start=2)
-
-# Draw a line connecting Tokyo and Maui
-folium.PolyLine(
-    locations=[tokyo, maui],
-    color='green',
-    weight=2
+# center on Liberty Bell, add marker
+m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+folium.Marker(
+    [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
 ).add_to(m)
 
-# Add markers for Tokyo and Maui
-folium.Marker(location=tokyo, popup='Tokyo').add_to(m)
-folium.Marker(location=maui, popup='Maui').add_to(m)
-
-# Display the map
-st.folium_map(m)
-
+# call to render Folium map in Streamlit
+st_data = st_folium(m, width=725)
 
 
 original_items = [
