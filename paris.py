@@ -33,7 +33,7 @@ st.write(plan_df)
 #Create a list of tupples from the dataframe that has lat, long
 plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
 
-st.write(places_tuples)
+st.write(plan_tuples)
 
 #Values held has tupples
 eifel = (48.8584, 2.2945)
