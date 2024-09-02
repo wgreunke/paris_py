@@ -13,6 +13,16 @@ folium.Marker(
     [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
 ).add_to(m)
 
+tokyo = (35.6895, 139.6917)
+maui = (20.7967, -156.3319)
+
+folium.PolyLine(
+    locations=[tokyo, maui],
+    color='green',
+    weight=2
+).add_to(m)
+
+
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
 
