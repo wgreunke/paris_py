@@ -13,11 +13,11 @@ folium.Marker(
     [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
 ).add_to(m)
 
-tokyo = (35.6895, 139.6917)
-maui = (20.7967, -156.3319)
+eifel = (48.8584, 2.2945)
+notre_dame = (48.8530,2.3499)
 
 folium.PolyLine(
-    locations=[tokyo, maui],
+    locations=[eifel, notre_dame],
     color='green',
     weight=2
 ).add_to(m)
