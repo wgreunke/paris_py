@@ -20,11 +20,17 @@ row_2=["Notre Dame Cathedral",48.8530,2.3499]
 row_3=["Louvre Museum",48.8606, 2.3376]
 places_df=pd.DataFrame([row_1,row_2,row_3],columns=df_columns)
 st.write(places_df)
+st.write(places_df.at[0,'Eifel Tower'])
+
+#Create a list of tupples from the dataframe that has lat, long
+places_tuples = [(row['place_lat'], row['place_long']) for _, row in places_df.iterrows()]
+st.write(places_tuples)
 
 #Values held has tupples
 eifel = (48.8584, 2.2945)
 notre_dame = (48.8530,2.3499)
 louvre=(48.8606, 2.3376)
+
 
 folium.PolyLine(
     locations=[eifel, notre_dame,louvre],
