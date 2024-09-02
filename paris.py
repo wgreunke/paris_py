@@ -18,7 +18,7 @@ df_columns=["place","place_lat","place_long"] #Keep it simple for now.
 row_1=["Eifel Tower",48.8584, 2.2945]
 row_2=["Notre Dame Cathedral",48.8530,2.3499]
 row_3=["Louvre Museum",48.8606, 2.3376]
-row_3=["Charles DeGaule Airport",49.0079, 2.5508]
+row_4=["Charles DeGaule Airport",49.0079, 2.5508]
 places_df=pd.DataFrame([row_1,row_2,row_3,row_4],columns=df_columns)
 st.write(places_df)
 st.write(places_df.at[0,'place'])
