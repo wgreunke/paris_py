@@ -42,10 +42,14 @@ st.write(start_place[0])
 #Smaller number is farther out.  18 is at block level
 m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
 
-folium.Marker(
+#folium.Marker(
     #[48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
-    [start_place[0],start_place[1]], popup=plan_list[0], tooltip=plan_list[0]
-).add_to(m)
+#    [start_place[0],start_place[1]], popup=plan_list[0], tooltip=plan_list[0]
+#).add_to(m)
+
+#Loop through the plan_df and add markers
+for index, row in plan_df.iterrows():
+    folium.Marker(location=(row['place_lat'],row['place_long'],popup=row['place']).add_to(m)
 
 
 
