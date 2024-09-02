@@ -34,11 +34,12 @@ st.write(plan_tuples)
 eifel = (48.8584, 2.2945)
 notre_dame = (48.8530,2.3499)
 louvre=(48.8606, 2.3376)
- 
-st.write(plan_tuples[0])
+
+start_place=plan_tuples[0]
+st.write(start_place[0])
 # center on Liberty Bell, add marker
 #m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
-m = folium.Map(location=[plan_tuples[0]], zoom_start=18)
+m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=16)
 
 folium.Marker(
     [48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
