@@ -13,11 +13,13 @@ folium.Marker(
     [48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
 ).add_to(m)
 
+#Values held has tupples
 eifel = (48.8584, 2.2945)
 notre_dame = (48.8530,2.3499)
+louvre=(48.8606, 2.3376)
 
 folium.PolyLine(
-    locations=[eifel, notre_dame],
+    locations=[eifel, notre_dame,louvre],
     color='red',
     weight=2
 ).add_to(m)
