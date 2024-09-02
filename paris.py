@@ -8,7 +8,9 @@ import pandas as pd
 from streamlit_folium import st_folium
 
 # center on Liberty Bell, add marker
-m = folium.Map(location=[48.8584, 2.2945], zoom_start=16)
+#m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
+m = folium.Map(location=[plan_tuples(0)], zoom_start=18)
+
 folium.Marker(
     [48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
 ).add_to(m)
