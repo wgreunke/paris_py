@@ -39,12 +39,12 @@ start_place=plan_tuples[0]
 st.write(start_place[0])
 # center on Liberty Bell, add marker
 #m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
-m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=18)
+#Smaller number is farther out.  18 is at block level
+m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
 
 folium.Marker(
     #[48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
-    [48.8584, 2.2945], popup=plan_list[0], tooltip="Liberty Bell"
-    
+    [start_place], popup=plan_list[0], tooltip=plan_list[0]
 ).add_to(m)
 
 
