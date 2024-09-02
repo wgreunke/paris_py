@@ -49,7 +49,7 @@ m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
 
 #Loop through the plan_df and add markers
 for index, row in plan_df.iterrows():
-    folium.Marker(location=(row['place_lat'],row['place_long'],popup=row['place']).add_to(m)
+    folium.Marker(location=[row['place_lat'],row['place_long']],popup=row['place']).add_to(m)
 
 
 
