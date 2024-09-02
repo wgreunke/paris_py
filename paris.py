@@ -44,7 +44,7 @@ m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
 
 folium.Marker(
     #[48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
-    [start_place], popup=plan_list[0], tooltip=plan_list[0]
+    [start_place[0],start_place[1]], popup=plan_list[0], tooltip=plan_list[0]
 ).add_to(m)
 
 
