@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 
 # Create a session object for the two lists
 if 'plan_list' not in st.session_state:
-    st.session_state['plan_list'] = []
+    st.session_state['plan_list'] = ["Louvre Museum"]
 
 
 #Make a dataframe that has the locations.  This will later be used by a db.
