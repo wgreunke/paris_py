@@ -23,7 +23,8 @@ st.write(places_df)
 st.write(places_df.at[0,'place'])
 
 #Make a list of places that you want to show then make a subset from the dataframe.
-st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
+#st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
+
 #Given the place list, return the rows of the df that match the place list.
 plan_df = places_df[places_df['place'].isin(st.session_state.plan_list)]
 #filtered_df = df[df['Category'].isin(target_values)]
@@ -61,12 +62,12 @@ folium.PolyLine(
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
 
-#This is where you choose what items to show in the map.
+#This is default values for the two sorting columns
 original_items = [
     {'header': 'Itinerary',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
     {'header': 'Maybe', 'items': ['Hotel', 'Latin Quarter', 'Airport','Charles de Gaul Station']}
 ]
-
+ 
 sorted_items = sort_items(original_items, multi_containers=True)
 
 st.write(f'original_items: {original_items}')
