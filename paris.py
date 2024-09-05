@@ -7,6 +7,10 @@ import pandas as pd
 
 from streamlit_folium import st_folium
 
+# Create a session object for the two lists
+if 'plan_list' not in st.session_state:
+    st.session_state['plan_list'] = []
+
 
 #Make a dataframe that has the locations.  This will later be used by a db.
 df_columns=["place","place_lat","place_long"] #Keep it simple for now.
@@ -19,9 +23,9 @@ st.write(places_df)
 st.write(places_df.at[0,'place'])
 
 #Make a list of places that you want to show then make a subset from the dataframe.
-plan_list=["Notre Dame Cathedral","Louvre Museum"]
+st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
 #Given the place list, return the rows of the df that match the place list.
-plan_df = places_df[places_df['place'].isin(plan_list)]
+plan_df = places_df[places_df['place'].isin(st.session_state.plan_list)]
 #filtered_df = df[df['Category'].isin(target_values)]
 st.write(plan_df)
 
@@ -39,20 +43,14 @@ start_place=plan_tuples[0]
 st.write(start_place[0])
 # center on Liberty Bell, add marker
 #m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
-#Smaller number is farther out.  18 is at block level
+# Smaller number is farther out.  18 is at block level
 m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
 
-#folium.Marker(
-    #[48.8584, 2.2945], popup="Liberty Bell", tooltip="Liberty Bell"
-#    [start_place[0],start_place[1]], popup=plan_list[0], tooltip=plan_list[0]
-#).add_to(m)
-
-#Loop through the plan_df and add markers
+# Loop through the plan_df and add markers to the map
 for index, row in plan_df.iterrows():
     folium.Marker(location=[row['place_lat'],row['place_long']],popup=row['place']).add_to(m)
 
-
-
+#Add the lines from the places to the map.
 folium.PolyLine(
 #    locations=[eifel, notre_dame,louvre],
     locations=[plan_tuples],
@@ -60,11 +58,10 @@ folium.PolyLine(
     weight=2
 ).add_to(m)
 
-
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
 
-
+#This is where you choose what items to show in the map.
 original_items = [
     {'header': 'Itinerary',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
     {'header': 'Maybe', 'items': ['Hotel', 'Latin Quarter', 'Airport','Charles de Gaul Station']}
