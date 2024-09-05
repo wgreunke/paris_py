@@ -24,7 +24,7 @@ st.write(places_df.at[0,'place'])
 
 # Make a list of places that you want to show then make a subset from the dataframe.
 st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
-st.write(st.session_state.plan_list)
+#st.write(st.session_state.plan_list)
 plan_list=["Notre Dame Cathedral","Louvre Museum"]
 
 # Given the place list, return the rows of the df that match the place list.
