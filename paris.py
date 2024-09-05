@@ -23,7 +23,7 @@ st.write(places_df)
 st.write(places_df.at[0,'place'])
 
 #Make a list of places that you want to show then make a subset from the dataframe.
-st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
+#st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
 plan_list=["Notre Dame Cathedral","Louvre Museum"]
 
 # Given the place list, return the rows of the df that match the place list.
@@ -67,7 +67,7 @@ st_data = st_folium(m, width=725)
 
 #This is default values for the two sorting columns
 
-temp_origional=["Lourve","Notre Dame","Sess"]
+temp_origional=["Lourve","Notre Dame"]
 
 # A list of dictionaries.
 original_items = [
