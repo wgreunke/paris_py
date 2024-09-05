@@ -66,6 +66,7 @@ st_data = st_folium(m, width=725)
 
 temp_origional=["Lourve","Notre Dame","Sess"]
 
+# A list of dictionaries.
 original_items = [
 #    {'header': 'Itinerary',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
     {'header': 'Itinerary',  'items': temp_origional},
@@ -73,9 +74,11 @@ original_items = [
 ]
 
 
-sorted_items = sort_items(original_items, multi_containers=True)
+#sorted_items = sort_items(original_items, multi_containers=True)
+st.session_state.plan_list=sort_items(original_items, multi_containers=True)
 
+st.write(st.session_state.plan_list)
 #st.write(f'original_items: {original_items}')
 #st.write(f'sorted_items: {sorted_items}')
-temp=sorted_items[0]['items'][0]
-st.write(temp)
+#temp=sorted_items[0]['items'][0]
+#st.write(temp)
