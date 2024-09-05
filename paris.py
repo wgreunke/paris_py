@@ -38,7 +38,7 @@ st.write(plan_df)
 #  I think this crashes if plan_df is empty
 # Check if DF is empty.  If it is give a default value for the city.   (Eifle Tower)
 if plan_df.empty:
-    plan_tuples=(48.8584, 2.2945) #Default Value for Map
+    plan_tuples=[(48.8584, 2.2945)] #Default Value for Map
 else:
     plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
     
@@ -50,12 +50,12 @@ eifel = (48.8584, 2.2945)
 notre_dame = (48.8530,2.3499)
 louvre=(48.8606, 2.3376)
 
-#start_place=plan_tuples[0]
-#st.write(start_place[0])
+start_place=plan_tuples[0]
+st.write(start_place[0])
 # center on Liberty Bell, add marker
 #m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
 # Smaller number is farther out.  18 is at block level
-m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14)
+m = folium.Map(location=[start_place[0],start_place[1]], zoom_start=14) 
 
 # Loop through the plan_df and add markers to the map
 for index, row in plan_df.iterrows():
