@@ -35,7 +35,13 @@ plan_df = places_df[places_df['place'].isin(st.session_state.plan_list)]
 st.write(plan_df)
 
 #Create a list of tupples from the dataframe that has lat, long
-plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
+#  I think this crashes if plan_df is empty
+# Check if DF is empty.  If it is give a default value for the city.   (Eifle Tower)
+if plan_df.empty:
+    plan_tupples=(48.8584, 2.2945) #Default Value for Map
+else:
+    plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
+    
 
 st.write(plan_tuples)
 
