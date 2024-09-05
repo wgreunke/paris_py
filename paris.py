@@ -63,14 +63,19 @@ folium.PolyLine(
 st_data = st_folium(m, width=725)
 
 #This is default values for the two sorting columns
+
+temp_origional=["Lourve","Notre Dame","Sess"]
+
 original_items = [
-    {'header': 'Itinerary',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
+#    {'header': 'Itinerary',  'items': ['Lourve', 'Arc d Triumph', 'Notre Dame']},
+    {'header': 'Itinerary',  'items': temp_origional},
     {'header': 'Maybe', 'items': ['Hotel', 'Latin Quarter', 'Airport','Charles de Gaul Station']}
 ]
- 
+
+
 sorted_items = sort_items(original_items, multi_containers=True)
 
-st.write(f'original_items: {original_items}')
-st.write(f'sorted_items: {sorted_items}')
+#st.write(f'original_items: {original_items}')
+#st.write(f'sorted_items: {sorted_items}')
 temp=sorted_items[0]['items'][0]
 st.write(temp)
