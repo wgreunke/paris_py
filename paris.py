@@ -38,7 +38,7 @@ st.write(plan_df)
 #  I think this crashes if plan_df is empty
 # Check if DF is empty.  If it is give a default value for the city.   (Eifle Tower)
 if plan_df.empty:
-    plan_tupples=(48.8584, 2.2945) #Default Value for Map
+    plan_tuples=(48.8584, 2.2945) #Default Value for Map
 else:
     plan_tuples = [(row['place_lat'], row['place_long']) for _, row in plan_df.iterrows()]
     
