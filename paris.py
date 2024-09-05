@@ -50,8 +50,8 @@ eifel = (48.8584, 2.2945)
 notre_dame = (48.8530,2.3499)
 louvre=(48.8606, 2.3376)
 
-start_place=plan_tuples[0]
-st.write(start_place[0])
+#start_place=plan_tuples[0]
+#st.write(start_place[0])
 # center on Liberty Bell, add marker
 #m = folium.Map(location=[48.8584, 2.2945], zoom_start=18)
 # Smaller number is farther out.  18 is at block level
