@@ -80,6 +80,10 @@ sorted_list=sort_items(original_items, multi_containers=True)
 #st.session_state.plan_list=sorted_list[0]['items']
 
 st.write(sorted_list[0]['items'])
+
+temp_list=["box","House"]
+print(temp_list)
+
 #st.write(st.session_state.plan_list)
 #st.write(f'original_items: {original_items}')
 #st.write(f'sorted_items: {sorted_items}')
