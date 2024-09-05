@@ -26,9 +26,9 @@ st.write(places_df.at[0,'place'])
 st.session_state.plan_list=["Notre Dame Cathedral","Louvre Museum"]
 plan_list=["Notre Dame Cathedral","Louvre Museum"]
 
-#Given the place list, return the rows of the df that match the place list.
-#plan_df = places_df[places_df['place'].isin(st.session_state.plan_list)]
-plan_df = places_df[places_df['place'].isin(plan_list)]
+# Given the place list, return the rows of the df that match the place list.
+plan_df = places_df[places_df['place'].isin(st.session_state.plan_list)]
+#plan_df = places_df[places_df['place'].isin(plan_list)]
 
 #filtered_df = df[df['Category'].isin(target_values)]
 st.write(plan_df)
